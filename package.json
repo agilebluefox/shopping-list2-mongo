@@ -1,0 +1,29 @@
+{
+  "name": "shopping-list2-mongo",
+  "version": "1.0.0",
+  "description": "A version of the shopping list app which uses MongoDB for persistent storage.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mongod": "mongod --dbpath /Users/daconner/mongo_data --nojournal --rest --bind_ip localhost"
+  },
+  "keywords": [
+    "Mongo",
+    "Mongoose",
+    "Mocha",
+    "Chai",
+    "Express"
+  ],
+  "author": "David Conner",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^2.5.3"
+  }
+}
