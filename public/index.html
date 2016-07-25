@@ -179,9 +179,14 @@
         }
 
         deleteItem(id) {
-            let ajax = $.ajax('/items/' + id, {
+            let id = {
+                'id': id
+            };
+            let ajax = $.ajax('/items', {
                 type: 'DELETE',
-                dataType: 'json'
+                data: JSON.stringify(id),
+                dataType: 'json',
+                contentType: 'application/json'
             });
             ajax.done(this.getItems.bind(this));
         }
@@ -191,7 +196,7 @@
                 'name': name,
                 'id': id
             };
-            let ajax = $.ajax('/items/' + id, {
+            let ajax = $.ajax('/items', {
                 type: 'PUT',
                 data: JSON.stringify(item),
                 dataType: 'json',
