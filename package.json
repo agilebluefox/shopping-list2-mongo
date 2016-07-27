@@ -4,7 +4,7 @@
   "description": "A version of the shopping list app which uses MongoDB for persistent storage.",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/test-server.js",
+    "test": "mocha ./test/test-server.js",
     "mongod": "mongod --dbpath /Users/daconner/mongo_data --nojournal --rest --bind_ip localhost"
   },
   "keywords": [
@@ -25,6 +25,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "mocha": "^2.5.3",
+    "node-options": "0.0.7",
     "superagent": "^2.1.0"
   }
 }
