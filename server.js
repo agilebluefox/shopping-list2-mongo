@@ -38,7 +38,6 @@ app.post('/items', function (req, res) {
 app.delete('/items', function (req, res) {
     var id = req.body.id;
     Item.findByIdAndRemove(id, function (err, item) {
-        console.log('The item to remove is: ' + item);
         if (err) {
             return res.status(500).json({
                 message: 'Could not delete requested item'
@@ -57,19 +56,20 @@ app.put('/items', function (req, res) {
         });
     }
     Item.findById(id, function (err, item) {
-         if (err) {
+        if (err) {
             return res.status(500).json({
                 message: "Id not found"
             });
-         }
-         Item.findByIdAndUpdate(id, {name: name}, {new: true }, function (err, item) {
-             if (err) {
-                 return res.status(500).json({
-                     message: 'Could not update requested item'
-                 });
-             }
-             return res.status(201).json(item);
-         });
+        }
+        Item.findByIdAndUpdate(id, { name: name }, { new: true },
+            function (err, item) {
+                if (err) {
+                    return res.status(500).json({
+                        message: 'Could not update requested item'
+                    });
+                }
+                return res.status(201).json(item);
+            });
     });
 });
 

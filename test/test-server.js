@@ -31,7 +31,6 @@ describe('Shopping List', function () {
         chai.request(app)
             .get('/items')
             .end(function (err, res) {
-                console.log(res.body);
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('array');
@@ -140,7 +139,6 @@ describe('Shopping List', function () {
         chai.request(app)
             .get('/items')
             .end(function (err, res) {
-                console.log(res.body);
                 var id = res.body[2]._id;
                 var name = res.body[2].name;
                 chai.request(app)
