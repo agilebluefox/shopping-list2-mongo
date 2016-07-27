@@ -86,7 +86,7 @@ describe('Shopping List', function () {
                         if (err) {
                             return done(err); }
                         should.equal(err, null);
-                        res.should.have.status(200);
+                        res.should.have.status(201);
                         res.should.be.json;
                         res.body.should.be.a('object');
                         res.body.should.have.property(
@@ -111,6 +111,7 @@ describe('Shopping List', function () {
                 .end(function (err, res) {
                     res.should.have.status(500);
                     res.should.be.json;
+                    res.body.message.should.equal('Id not found');
                     done();
                 });
         });
@@ -124,6 +125,7 @@ describe('Shopping List', function () {
                 .end(function (err, res) {
                     res.should.have.status(500);
                     res.should.be.json;
+                    res.body.message.should.equal('Missing required parameter');
                     done();
                 });
         });

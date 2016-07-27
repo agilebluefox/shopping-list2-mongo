@@ -50,13 +50,25 @@ app.delete('/items', function (req, res) {
 app.put('/items', function (req, res) {
     var id = req.body.id;
     var name = req.body.name;
-    Item.findByIdAndUpdate(id, function (err, item) {
-        if (err) {
+    if (!name || !id) {
+        return res.status(500).json({
+            message: 'Missing required parameter'
+        });
+    }
+    Item.findById(id, function (err, item) {
+         if (err) {
             return res.status(500).json({
-                message: 'Could not update requested item'
+                message: "Id not found"
             });
-        }
-        res.status(201).json(item);
+         }
+         Item.findByIdAndUpdate(id, {name: name}, {new: true }, function (err, item) {
+             if (err) {
+                 return res.status(500).json({
+                     message: 'Could not update requested item'
+                 });
+             }
+             return res.status(201).json(item);
+         });
     });
 });
 
