@@ -80,9 +80,10 @@ describe('Shopping List', function () {
         chai.request(app)
             .get('/items')
             .end(function (err, res) {
+                var id = res.body[1]._id;
                 chai.request(app)
                     .put('/items')
-                    .send({ 'id': res.body[1]._id, 'name': 'Milk' })
+                    .send({ 'id': id, 'name': 'Milk' })
                     .end(function (err, res) {
                         if (err) {
                             return done(err);
@@ -97,6 +98,7 @@ describe('Shopping List', function () {
                             '_id');
                         res.body._id.should.be.a(
                             'string');
+                        res.body._id.should.equal(id);
                         res.body.name.should.equal(
                             'Milk');
                         done();
@@ -140,6 +142,7 @@ describe('Shopping List', function () {
             .end(function (err, res) {
                 console.log(res.body);
                 var id = res.body[2]._id;
+                var name = res.body[2].name;
                 chai.request(app)
                     .delete('/items')
                     .send({ 'id': id })
@@ -157,7 +160,7 @@ describe('Shopping List', function () {
                             'string');
                         res.body._id.should.equal(id);
                         res.body.name.should.equal(
-                            'Peppers');
+                            name);
                         done();
                     });
             });
