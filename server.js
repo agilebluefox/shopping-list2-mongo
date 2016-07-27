@@ -38,6 +38,7 @@ app.post('/items', function (req, res) {
 app.delete('/items', function (req, res) {
     var id = req.body.id;
     Item.findByIdAndRemove(id, function (err, item) {
+        console.log('The item to remove is: ' + item);
         if (err) {
             return res.status(500).json({
                 message: 'Could not delete requested item'

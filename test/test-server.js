@@ -84,7 +84,8 @@ describe('Shopping List', function () {
                     .send({ 'id': res.body[1]._id, 'name': 'Milk' })
                     .end(function (err, res) {
                         if (err) {
-                            return done(err); }
+                            return done(err);
+                        }
                         should.equal(err, null);
                         res.should.have.status(201);
                         res.should.be.json;
@@ -111,7 +112,8 @@ describe('Shopping List', function () {
                 .end(function (err, res) {
                     res.should.have.status(500);
                     res.should.be.json;
-                    res.body.message.should.equal('Id not found');
+                    res.body.message.should.equal(
+                        'Id not found');
                     done();
                 });
         });
@@ -125,7 +127,8 @@ describe('Shopping List', function () {
                 .end(function (err, res) {
                     res.should.have.status(500);
                     res.should.be.json;
-                    res.body.message.should.equal('Missing required parameter');
+                    res.body.message.should.equal(
+                        'Missing required parameter');
                     done();
                 });
         });
@@ -134,9 +137,11 @@ describe('Shopping List', function () {
         chai.request(app)
             .get('/items')
             .end(function (err, res) {
+                console.log(res.body);
+                var id = res.body[2]._id;
                 chai.request(app)
                     .delete('/items')
-                    .send({ 'id': res.body[2]._id })
+                    .send({ 'id': id })
                     .end(function (err, res) {
                         res.should.have.status(200);
                         res.should.be.json;
@@ -149,6 +154,7 @@ describe('Shopping List', function () {
                             'string');
                         res.body._id.should.be.a(
                             'string');
+                        res.body._id.should.equal(id);
                         res.body.name.should.equal(
                             'Peppers');
                         done();
