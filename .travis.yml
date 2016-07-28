@@ -2,3 +2,10 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: FgUgQjs6ZczD9UU2j8aoVMfh/CaV2j298MbFi+QeNTpXux4pP7oq8VlUiLQ/62uHTfgzN4wPaO5ANDhMUQRnAa8k/9//nGMGZZGd3TPs9+rhtak2coPGNFM4hPHUO2PJo73C5+v1Iq4gf/ysNRB/oHCJCIVGWr37IRRLoryrylxHyAtU1D1PvZEUOikE8g4gkj2xvmKsgDUih4z27deK49tz8Me5wjyf21ALXNL72YmBWh8rNltIWXy7a7+hl1nHTr5/zFHMM5MWDgTWHcz9JmJrglu3yUgrv5e3753Jda3oPNFLROwiWKMe6p3CToNtOLbzz0Kkc+D2I3JXjxXYgU/GqeXXr0J2Cg0r5kvWd8Qo+ADfepBPi7/tnfD3479qnvozHQn08zmhhYOMD0Td0fw2ZiKHVrNzDGSihk52vnBDWeqKBPi015xiysIe2hbsr037MBq8KByzw+lDy+ykoAlo7J1mPGfJRikOP+z6O4Qk03RzrZXZWAMtNKbjgaTDH/ausvFUv9OwiQFuoPsZ7ZafvzaNwdKGLcvHyNqpl62UMDfGMwUv2NIWI2Z6sIne3JcVnqsSK5i73GNsruAGICOau01O27tVUL2N6an3oBMSzTz6XZFXenD0Va5JeOvRo8iqGtmUfxytM6YhuVMxnZGNqkSvDU08+ugXQIXfBqc=
+  app: fathomless-mountain-15823
+  on:
+    repo: agilebluefox/shopping-list2-mongo
