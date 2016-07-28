@@ -179,9 +179,12 @@
         }
 
         deleteItem(id) {
+            let item = {
+                'id': id
+            };
             let ajax = $.ajax('/items', {
                 type: 'DELETE',
-                data: JSON.stringify(id),
+                data: JSON.stringify(item),
                 dataType: 'json',
                 contentType: 'application/json'
             });
