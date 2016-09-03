@@ -101,7 +101,6 @@ if (require.main === module) {
             console.log(err);
         }
     });
-};
-
+}
 exports.app = app;
 exports.runServer = runServer;

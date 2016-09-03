@@ -91,15 +91,11 @@ describe('Shopping List', function () {
                         res.should.have.status(201);
                         res.should.be.json;
                         res.body.should.be.a('object');
-                        res.body.should.have.property(
-                            'name');
-                        res.body.should.have.property(
-                            '_id');
-                        res.body._id.should.be.a(
-                            'string');
+                        res.body.should.have.property('name');
+                        res.body.should.have.property('_id');
+                        res.body._id.should.be.a('string');
                         res.body._id.should.equal(id);
-                        res.body.name.should.equal(
-                            'Milk');
+                        res.body.name.should.equal('Milk');
                         done();
                     });
             });
@@ -148,17 +144,12 @@ describe('Shopping List', function () {
                         res.should.have.status(200);
                         res.should.be.json;
                         res.body.should.be.a('object');
-                        res.body.should.have.property(
-                            'name');
-                        res.body.should.have.property(
-                            '_id');
-                        res.body.name.should.be.a(
-                            'string');
-                        res.body._id.should.be.a(
-                            'string');
+                        res.body.should.have.property('name');
+                        res.body.should.have.property('_id');
+                        res.body.name.should.be.a('string');
+                        res.body._id.should.be.a('string');
                         res.body._id.should.equal(id);
-                        res.body.name.should.equal(
-                            name);
+                        res.body.name.should.equal(name);
                         done();
                     });
             });
