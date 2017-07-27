@@ -1,6 +1,9 @@
 {
   "name": "shopping-list2-mongo",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "A version of the shopping list app which uses MongoDB for persistent storage.",
   "main": "server.js",
   "scripts": {
