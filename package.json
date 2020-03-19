@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha ./test/test-server.js",
-    "mongod": "mongod --dbpath /Users/daconner/mongo_data --nojournal --rest --bind_ip 127.0.0.1"
+    "mongod": "mongod --dbpath /Users/daconner/mongo_data --nojournal --bind_ip 127.0.0.1"
   },
   "keywords": [
     "Mongo",
